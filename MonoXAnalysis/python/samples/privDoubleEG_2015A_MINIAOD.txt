@@ -1,3 +1,0 @@
-/store/group/dpg_ecal/comm_ecal/data13TeV/DoubleEG/MINIAOD/miniAOD-prod_PAT_1.root
-/store/group/dpg_ecal/comm_ecal/data13TeV/DoubleEG/MINIAOD/miniAOD-prod_PAT_2.root
-/store/group/dpg_ecal/comm_ecal/data13TeV/DoubleEG/MINIAOD/miniAOD-prod_PAT_3.root

@@ -1,2 +1,0 @@
-norm-lumi-override: 0.001
-

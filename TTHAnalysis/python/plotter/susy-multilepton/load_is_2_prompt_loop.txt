@@ -1,1 +1,0 @@
-cut-file: susy-multilepton/is_2_prompt_loop.txt

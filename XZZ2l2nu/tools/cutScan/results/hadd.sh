@@ -1,3 +1,0 @@
-
-
-hadd higgsCombinexzz2l2nu_zptcut100_metcut200.root  higgsCombinexzz2l2nu_m*_zptcut100_metcut200_mtcut*.root

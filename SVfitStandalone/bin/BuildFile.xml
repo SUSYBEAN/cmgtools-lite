@@ -1,4 +1,0 @@
-<bin   file="testSVfitStandalone.cc" name="testSVfitStandalone">
-  <use name="FWCore/ParameterSet"/>
-  <use name="CMGTools/SVfitStandalone"/>
-</bin>

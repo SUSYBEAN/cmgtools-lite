@@ -1,2 +1,0 @@
-HLT_FR_PFJet60 : 0; AlsoData
-HLT_FR_PFJet80 : 0; AlsoData
