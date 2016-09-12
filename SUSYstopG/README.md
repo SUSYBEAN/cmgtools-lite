@@ -85,7 +85,7 @@ Instructions for package development.
   The CMGTools is made as a standalone package. So we need to add repository separately:
 
   ```
-  git clone -o susybean https://github.com/SUSYBEAN/cmgtools-lite.git -b susy80x CMGTools
+  git clone -o susybean git@github.com:SUSYBEAN/cmgtools-lite.git -b susy80x CMGTools
   ```
 
 7. Compile the package together with Heppy Framework:
