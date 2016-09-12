@@ -1,0 +1,53 @@
+      DOUBLE PRECISION lam1, lam2, lam3, lam4, lam5, lam6
+      DOUBLE PRECISION AthClc
+      DOUBLE PRECISION BCsTh
+      DOUBLE PRECISION BCsThS
+      DOUBLE PRECISION BCsThl
+      DOUBLE PRECISION BCsThlq
+      DOUBLE PRECISION BSnTh
+      DOUBLE PRECISION BSnThl
+      DOUBLE PRECISION BSnThlq
+      DOUBLE PRECISION BtQ
+      DOUBLE PRECISION BtQl
+      DOUBLE PRECISION BtQlq
+      DOUBLE PRECISION CsTh
+      DOUBLE PRECISION CsThS
+      DOUBLE PRECISION CsThl
+      DOUBLE PRECISION CsThr
+      DOUBLE PRECISION El
+      DOUBLE PRECISION Eq
+      DOUBLE PRECISION Er
+      DOUBLE PRECISION Exp2Y
+      DOUBLE PRECISION SnTh
+      DOUBLE PRECISION SnThl
+      DOUBLE PRECISION SnThr
+      DOUBLE PRECISION cz1
+      DOUBLE PRECISION cz2
+      DOUBLE PRECISION limthy
+      DOUBLE PRECISION phi
+      DOUBLE PRECISION phiS
+      DOUBLE PRECISION phil
+      DOUBLE PRECISION phir
+      DOUBLE PRECISION s
+      DOUBLE PRECISION sll
+      DOUBLE PRECISION sllup
+      DOUBLE PRECISION sqq
+      DOUBLE PRECISION x1
+      DOUBLE PRECISION x2
+      COMMON/EVENTCMN/ lam1, lam2, lam3, lam4, lam5, lam6, AthClc, BCsTh
+     #, BCsThS, BCsThl, BCsThlq, BSnTh, BSnThl, BSnThlq, BtQ, BtQl, BtQl
+     #q, CsTh, CsThS, CsThl, CsThr, El, Eq, Er, Exp2Y, SnTh, SnThl, SnTh
+     #r, cz1, cz2, limthy, phi, phiS, phil, phir, s, sll, sllup, sqq, x1
+     #, x2
+
+      DOUBLE PRECISION PSfct
+      DOUBLE PRECISION flxfct
+      DOUBLE PRECISION j0
+      DOUBLE PRECISION j1
+      DOUBLE PRECISION j1n2
+      DOUBLE PRECISION j1n6
+      DOUBLE PRECISION j2
+      DOUBLE PRECISION j3
+      DOUBLE PRECISION j4
+      DOUBLE PRECISION j6
+      COMMON/PRECMN/ PSfct, flxfct, j0, j1, j1n2, j1n6, j2, j3, j4, j6

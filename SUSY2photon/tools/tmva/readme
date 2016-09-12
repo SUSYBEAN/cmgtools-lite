@@ -1,0 +1,30 @@
+
+
+TMVA training and applying
+
+1.) training
+
+./xzzbdt.py
+
+need to modify the script to point to the ntuple input directory,
+the input ntuples are skimmed using tools in 
+
+   XZZ2l2nu/tools/selections
+
+to add the SumWeights and SumEvents inside the tree.
+
+
+2.) applying
+
+./addbdtvar.sh
+
+it is eventually another skimming but add new branches to the trees storing the MVA variables inside.
+
+
+3.) plotting
+
+./stack_dtmc.py
+
+Note that this script is modified version that takes the trees outputted from step 2.) .
+
+

@@ -1,0 +1,6 @@
+Last updated: 9/1/12
+
+-Remove redundant cross section variables in the common block for EW module
+
+-Look at reducing size of entries file
+

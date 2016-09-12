@@ -1,0 +1,23 @@
+
+int DepVarDimension 1
+
+string OutRootFile rootfiles/trackhighptmuon80/fiteff_npnm_data_mu_set.root
+string OutPlotFile plots/trackhighptmuon80/fiteff_npnm_data_mu_set
+
+string DATAFile rootfiles/meehists_npnm_pt_data_mu_set.root
+string PMCSFile rootfiles/meehists_npnm_pt_sgnl_mu_set.root 
+string BKGDFile rootfiles/meehists_npnm_pt_bkgd_mu_set.root
+
+string_array DATAHistNames hnp_ hnm_
+string_array PMCSHistNames hnp_ hnp_
+string_array BKGDHistNames hnp_ hnm_
+
+string_array SignalHistNames hnp hnm
+
+double_array DepVarBins 20 25 30 40 50 60 80 120 200 1000
+
+
+double_array FitRange 60.0 130.0 
+
+double_array EffCalcRange 80.0 100.0
+

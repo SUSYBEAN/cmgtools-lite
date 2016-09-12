@@ -1,0 +1,22 @@
+# el channel, M 800 :
+# el channel, M 1000 :
+287a288
+> 1,77,15268
+11036a11038
+> 1,240,47835
+# el channel, M 1200 :
+1670a1671
+> 1,111,22001
+# el channel, M 1400 :
+# el channel, M 1600 :
+# el channel, M 1800 :
+# el channel, M 2000 :
+# el channel, M 2500 :
+10432a10433
+> 1,191,38007
+# el channel, M 3000 :
+# el channel, M 3500 :
+# el channel, M 4000 :
+# el channel, M 4500 :
+2245a2246
+> 1,241,24086

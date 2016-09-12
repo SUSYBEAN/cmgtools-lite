@@ -1,0 +1,259 @@
+
+A Package For Efficiency Study
+==============================
+  Tools for the work I shown on the W mass meeting on Nov.17 and Dec. 1, 2010.  
+
+Contact: Hengne.Li@in2p3.fr
+
+ Oct. 26, 2010
+
+updated on : 
+   Nov. 8, 2010
+   Dec. 3, 2010
+
+==============================
+
+==============================
+Contents
+
+  (A). Instruction
+  (B). Work Flow 
+  (C). Installation
+  (D). Executables 
+  (E). Configuration Files
+  (F). Working Examples
+    (1) Track Match Efficiency and Efficiency Ratio Study
+    (2) Trigger Efficiency Study
+
+==============================
+
+
+
+
+(A). Introduction:
+
+  Codes to study efficiencies when a fit to Mee of Z to remove background is needed or not, 
+taking a ROOT tree as input. The codes allow users to study efficiency dependences up to 
+3 dimensions at the same time, e.g. to derive the track match efficiency as a 2D (3D) 
+function of SET, InstLumi (and ElecPT). Users are allowed to desigh their own efficiency 
+calculation method. All parameters are passed in through configuration files. 
+
+
+==============================
+
+
+
+(B). The Work Flow of this package:
+
+  - If no background subtraction is needed:
+
+    (1). Fill histograms of efficiency dependence variables, 
+        e.g. ElecPt hists of N+ (events pass cut) and N- (events not pass cut) 
+
+    (2). Calculate efficiencies for each bin in the hists created above:
+        e.g. Eff = N+/(N+ + N-) 
+             Eff_err = sqrt(delta(N+)^2 (N-)^2 + delta(N-)^2 (N+)^2)/(N+ + N-)^2
+
+  - If background subtraction is needed:
+
+    (1). Fill Mee histograms in bins of efficiency dependence variables for <Data>,
+          <Pure Signal>, and <Pure Background>. 
+         e.g. Mee histograms in bins of ElecPt of N+ (events pass cut) and N- (events 
+              not pass cut) for  <Data>, <Pure Signal>, and <Pure Background>..
+
+    (2). Fit Mee <Data> histograms (of both N+ and N-) of each bin of efficiency dependence
+          variable (e.g. ElecPt) assuming it is composed of <Pure Signal> plus <Pure Backgound>
+          to derive the fraction of the <Pure Signal> inside the <Data>. This is done for 
+          both N+ hists and N- hists separately.  
+     
+         For this propose:
+
+          - First parameterize the <Pure Signal> distribution using kernel estimation.
+             In which a Mee peak shift and an addtional smearing can be introduced as free 
+             parameters to adjust the <Pure Signal> shape, i.e. the signal function F_sig.
+
+          - Model the backgrond as Polinomial+Gaussian, i.e. the background function F_bkg.
+
+          - Fit a composed model:
+
+                 F = Norm* (frac*F_sig + (1-frac)*F_bkg)
+
+             to the <Data>, where the Norm is number of events of the <Data>. This will 
+             derive the fraction <frac> of <Pure Signal> inside the <Data>
+
+          - Then, the number N+ or N- of <Pure Signal> is calculated as:
+
+                N_sig = frac * N_data
+
+                delta(N_sig) = sqrt( N_sig + delta(frac)^2 * N_data^2 )
+
+            Again, N_sig refers to N+ or N-, and N_data also. And, N+ and N- are fitted and calculated 
+             separately for each bin of e.g. ElecPT.
+
+          The output of this step is e.g 2 histograms of ElecPt of N+ and N- of <Pure Signal>, respectively.
+
+    (3). Calculate efficiencies for each bin in the hists created above:
+        e.g. Eff = N+/(N+ + N-)
+             Eff_err = sqrt(delta(N+)^2 (N-)^2 + delta(N-)^2 (N+)^2)/(N+ + N-)^2
+
+
+===============================
+
+
+
+(C). Install / Build
+ 
+    Simple type and run:
+
+        make all
+
+
+
+================================
+
+
+
+(D). Executables build and Functionalities:
+
+ (1) storehist_fullmc.exe 
+
+  Store histograms of an efficiency dependence variable for efficiency calculation from a FullMC Tree. 
+    I.e. when there is no background need to be subtracted, users can directly use this binary to draw 
+    histograms of efficiency dependence variables with selection criteria required for the efficiency 
+    calculation. 
+
+ (2) storehist_mee.exe 
+
+   Store histograms of Mee in bins of an efficiency dependence variable for efficiency calculation from 
+     a <Data> Tree, <Pure Background> Tree or <Pure Signal> Tree.
+
+ (3) fiteff_mee_keys.exe : Using Kernel Estimation to model the signal.
+
+   Fit Mee histogram of <Data> assuming it is composed of <Pure Signal> and <Pure Background> to derive
+     the fraction of the <Pure Signal> inside <Data>. The output is histograms of efficiency dependence 
+     variables.
+ 
+   It is using Kernel Estimation to model the signal, so as the Mee peak shift and an additional smearing 
+     of the <Pure Signal> can be thereafter introduced for tuning the signal shape. 
+
+   Introducing this technique is because the pure signal Mee shape would be not correctly representing the truth.
+     Thus a small "fudge" will be needed. Previously we do this "fudge" directly on the histrograms of PMCS when 
+     storing them using storehist_mee.exe. But we found that involves too much tedious and time consuming hand works.
+     Introducing this Kenerl Estimation to model the signal with 2 additional free parameters : Mee peak shift and 
+     sigma, we can determine the two "fudging" parameters at the fitting time. Thus, it is actually fit 2 times, the
+     first time, to fit 3 free parameters: signal fraction, Mee peak shift and sigma; and the second time, it fix the
+     Mee peak shift and sigma to determine only the fraction.
+
+
+=================================
+
+
+
+
+(E). Configuration Files:
+
+   All the 3 executables above need configuration files to pass in the required options. No hard coded 
+     parameters are in the executables. 
+   Using the configuration files, users can easily adapt it to their own tree sturcture, tree names and 
+     branch names. Selection criteria and ouput histograms are defined by strings.
+
+   In subdirectory "conf/", there are examples of configuration files.
+
+
+==================================
+
+(F). Working Examples:
+
+
+  1. Track Match Efficiency Study and Efficiency Ratio Study
+
+     The Track Match Efficiency consists of Loose Track Match and Tight Track Match 
+      efficiencies as a 1D function of ElecPt, SET and InstLumi, and 2D function of
+      SET-InstLumi, of both Data and FullMC. 
+
+     In case of Data, the background has to be subtracted by a fit to Mee distribution.
+
+      - The input Tree for the Data and Background histomgrams is the "z" tree filled by
+       ZAnalysis processor in wmass_analysis with options "fillztree" and "goodsameasprobe"
+       turned on. 
+       
+      - The input Tree for pure signal is the "ZTree2" filled by ZAnalysis in wz_epmcs 
+        with option "createRootTree2" turned on.
+
+     In case of FullMC, the input tree is also the "z" tree filled by ZAnalaysis in 
+      wmass_analysis but with FullMC samples as input.
+
+     All the configuration files are ready in the "conf/" subdirectory, with the file names 
+      indicating their proposes.
+
+     Let's take the tight track match SET-InstLumi 2D dependence as an example. Users can take
+      this as an example to learn the stucture of the configuration files. Thereafter, users can 
+      immediately understand how to run the rests.
+
+       (1). For Full MC 2D:
+          
+          - Fill the histograms of hnp (N+) and hnm (N-):
+
+             ./storehist_fullmc.exe conf/storehist_fullmc.config.npnm_fullmc_tight_setlumi_effrange_nout_ec_tg  
+
+            This will produce a ROOT file in rootfiles/ directory storing hnp and hnm
+
+       (2). For Data:  
+       
+          - Fill the Mee histograms of hnp (N+) and hnm (N-) in bins of SET-InstLumi, for :
+
+             - Data:
+              
+             ./storehist_mee.exe conf/storehist_mee.config.npnm_data_tight_setlumi_nout_ec_tg
+
+             - PMCS: 
+     
+             ./storehist_mee.exe conf/storehist_mee.config.npnm_pmcs_tight_setlumi_nout_ec_tg
+
+             - BKGD: 
+     
+             ./storehist_mee.exe conf/storehist_mee.config.npnm_bkgd_tight_setlumi_nout_ec_tg
+
+          - Fit PMCS and BKGD to the Data to subtract background:
+
+             ./fiteff_mee_keys.exe conf/fiteff_mee.config.npnm_tight_setlumi_effrange_nout_ec_tg 
+
+       (3). Take the output from (1) and (2) to calculate the efficiencies of FullMC and Data,
+             and the Ratio of Data/FullMC :
+
+             in ROOT: .x macros/make_effratio_npnm_tight_setlumi_effrange_nout_ec_tg.C
+
+       (4). Repeat the above (1)-(3) for loose track match efficiency.
+
+       (5). Get The combinded Loose*Tight efficeincy ratio of Data/FullMC, and print parameters 
+             for the Data Hack for PMCS:
+
+             in ROOT: .x macros/compare_effratio_npnm_loose_tight_setlumi_effrange_nout_ec_tg.C
+
+
+
+  2. Trigger Efficiency Study.
+     
+      There are 3 trigger types used in RunIIb for the data set for Wmass analysis. They are 
+       E1_SHT25_v15, E1_SHT25_v16 and E1_SHT27. The objective is to derive the trigger efficencies
+       depending on ElecPT of these 3 trigger types from the corresponding data sets. These 
+       trigger efficiencies are used in PMCS.
+
+     - Fill the ElecPT histograms of hnp (N+) and hnm (N-) for the 3 trigger types:
+
+        ./storehist_fullmc.exe conf/storehist_fullmc.config.data_trig_pt_effrange_nout_ec
+
+       (Note here: I use storehist_fullmc.exe for the Data. This is simply because the trigger
+             efficiency is derived based on tight electron ID cuts. Therefore, there is basically
+             no background remained in all these histograms, hence no background subtraction is 
+             needed. )
+
+     - Calculate the efficiency and print parameters for PMCS:
+ 
+       in ROOT: .x macros/make_eff_trig_pt_effrange_nout_ec.C 
+
+   
+   
+   
+
+   

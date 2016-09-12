@@ -1,0 +1,42 @@
+
+
+//string inputfile /afs/cern.ch/work/y/yanchu/graviton/CMSSW_7_6_3_patch2/src/CMGTools/XZZ2l2nu/cfg/bkgmuhadron/bkg.root
+string inputfile /datab/yanchu/bkgBCD12p9.root
+
+string outputfile rootfiles/meehists_npnm_pt_bkgd_mu_set.root
+
+int DepVarDimension 2
+
+bool SmearMee false
+
+// based on electron or event?
+bool ElectronBasis false
+
+// dependence var is of electrons?
+bool ElectronDepVar false
+
+// use weights or not
+bool UseWeight false
+
+string WeightVarName (genWeight*puWeight)
+
+string ZTreeName tree
+
+string_array MeeVarNames llpair_Z_mass llpair_Z_mass
+
+double_array MeeVarBins 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129  130 131 132 133 134 135 136 137 138 139 140
+
+string_array DepVarNames llpair_l2_pt llpair_l2_pt
+double_array DepVarBins 20 24 30 35 40 50 60 80 200 1000
+string_array DepVarNames2 llpair_l2_eta llpair_l2_eta
+double_array DepVarBins2 -2.4 -2.1 -1.6 -1.2 -.9 -.6 -.3 -.2 .2 .3 .6 .9 1.2 1.6 2.1 2.4
+
+string_array HistNames hnp_ hnm_
+
+string BaseSelection (llpair_l1_isTag==1)
+
+string_array BaseSelectionVec (1) (1)
+
+
+
+

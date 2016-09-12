@@ -1,0 +1,18 @@
+# mu channel, M 800 :
+# mu channel, M 1000 :
+# mu channel, M 1200 :
+# mu channel, M 1400 :
+# mu channel, M 1600 :
+# mu channel, M 1800 :
+# mu channel, M 2000 :
+4434d4433
+< 1,183,36443
+# mu channel, M 2500 :
+# mu channel, M 3000 :
+# mu channel, M 3500 :
+9582d9581
+< 1,233,46523
+# mu channel, M 4000 :
+# mu channel, M 4500 :
+6289d6288
+< 1,144,14381
