@@ -16,7 +16,7 @@ Instructions for package development.
    https://github.com/mmhy/cmg-cmssw.git
 
    The analysis package:
-   https://github.com/mmhy/cmgtools-lite.git
+   https://github.com/SUSYBEAN/cmgtools-lite.git
 
 2. Setup Environment
 
@@ -48,7 +48,7 @@ Instructions for package development.
 5. Configure the sparse checkout (to only checkout needed packages), and check out only the Heppy framework
 
   ```
-  curl -O https://raw.githubusercontent.com/mmhy/cmgtools-lite/xzz2l2nu_80x/XZZ2l2nu/tools/sparse-checkout
+  curl -O https://raw.githubusercontent.com/SUSYBEAN/cmgtools-lite/susy80x/SUSYstopG/tools/sparse-checkout
   mv sparse-checkout .git/info/sparse-checkout
   git checkout -b xzz2l2nu_heppy_80X mmhy/xzz2l2nu_heppy_80X
   ```
@@ -80,27 +80,13 @@ Instructions for package development.
 
   **If ever possible, please don't change the Heppy framework.**
 
-6. Checkout the CMGTools/XZZ2l2nu package, currently the main branch is xzz2l2nu_80x.
+6. Checkout the CMGTools/SUSYstopG package, currently the main branch is susy80x.
 
   The CMGTools is made as a standalone package. So we need to add repository separately:
 
   ```
-  git clone -o mmhy https://github.com/mmhy/cmgtools-lite.git -b xzz2l2nu_80x CMGTools
+  git clone -o susybean https://github.com/SUSYBEAN/cmgtools-lite.git -b susy80x CMGTools
   ```
-
-6.1.  MuonRecalibrator: 
-   
-    Please see instructions in 
-
-    ``` 
-      CMGTools/XZZ2l2nu/tools/MuonCalib/readme
-    ```
-
-    for updating this part of codes. 
-
-  Note, NO extra preparation is needed to configure this package, since 2016-08-25 it 
-  is included in https://github.com/mmhy/cmg-cmssw.git in xzz2l2nu_heppy_80X branch already.
-
 
 7. Compile the package together with Heppy Framework:
    Note, do this in CMSSWxxx/src instead of your CMSSWxxx/src/CMSTools/ directory.
@@ -117,56 +103,9 @@ Instructions for package development.
   ```
   cd CMGTools
   git remote add origin https://github.com/<your own github name>/cmgtools-lite.git
-  git push origin xzz2l2nu_80x
+  git push origin susy80x
   ```
 
-
-9. Make a copy of branch xzz2l2nu_80x for your own developement, you can choose a branch name as you want, such as xzz2l2nu_80x_dev
-
-  Note, do this in your CMSSWxxx/src/CMSTools/ directory, not the CMSSWxxx/src.
-  ```
-  git checkout -b xzz2l2nu_80x_dev
-  ```
-
-10. Please frequently commit your changes and push your development branch to your own repository
-
-  Note, do this in your CMSSWxxx/src/CMSTools/ directory, not the CMSSWxxx/src.
-  ```
-  git commit -m 'describe your change here.' -a
-  git push origin xzz2l2nu_80x_dev
-  ```
-
-
-11. Once your developement is done, you can update the central branch xzz2l2nu_80x with a Pull Request. Steps below:
-
-  Note, do all following in your CMSSWxxx/src/CMSTools/ directory, not the CMSSWxxx/src.
-
-  * Update the branch xzz2l2nu_80x in your local repository with others developements on mmhy
-    ```
-    git checkout xzz2l2nu_80x
-    git fetch mmhy 
-    ```
-
-  * Rebased your development branch to the head of xzz2l2nu_80x, and update it in your own repository
-    ```
-    git checkout xzz2l2nu_80x_dev
-    git merge xzz2l2nu_80x
-    git push origin xzz2l2nu_80x_dev
-    ```
-
-12. Make a PR from branch xzz2l2nu_80x_dev in your own respository to branch xzz2l2nu_80x in MMHY respository to let others cross-check your changes. Once looks good, merge it.
-
-  The PR can be created on the webpage of your own repository:
-
-      https://github.com/<your own github name>/cmgtools-lite/tree/xzz2l2nu_80x_dev
-
-  E.g. A PR from hengne's xzz2l2nu_80x_dev branch to MMHY's xzz2l2nu_80x will look like this in the following link:
-
-      https://github.com/mmhy/cmgtools-lite/compare/xzz2l2nu_80x...hengne:xzz2l2nu_80x_dev  
-
-
-**Let's make it a rule here: Please always let other collabrators to view and sign your PR before merging it, even if you have the permission to do it all by yourself.**
-  
 
 Instruction to run jobs 
 ---------------------------------
