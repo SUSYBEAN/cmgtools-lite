@@ -1,4 +1,4 @@
-X->ZZ->2l2nu Analysis Package
+SUSYBEAN Analysis Package
 ===============================
 
   Analysis package heavy resonnance search using X->ZZ->2l2nu final states.
