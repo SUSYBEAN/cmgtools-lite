@@ -1,0 +1,5 @@
++++ skimming /data/XZZ/76X_Ntuple/76X_20160514/DYJetsToLL_M50_BIG/vvTreeProducer/tree.root +++
+-- Input file: /data/XZZ/76X_Ntuple/76X_20160514/DYJetsToLL_M50_BIG/vvTreeProducer/tree.root
+-- Output file: /data/XZZ/76X_Ntuple/76X_20160514_RecoilSkim/DYJetsToLL_M50_BIG.root
+-- AllEvents: 149963618 , SumWeights: 2.35598093471e+12
+-- Command: ./skimming.exe /data/XZZ/76X_Ntuple/76X_20160514/DYJetsToLL_M50_BIG/vvTreeProducer/tree.root /data/XZZ/76X_Ntuple/76X_20160514_RecoilSkim/DYJetsToLL_M50_BIG.root 149963618 2.35598093471e+12

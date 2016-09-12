@@ -1,0 +1,8 @@
+Using customized style
+ Ntrg_l1p = 2.16545e+06; Ntrg_l1f = 309151
+ Ntrg_l1pl2f = 1.93963e+06; Ntrg_l1pl2p = 225816; Ntrg_l1fl2p = 35582; Ntrg_tot = 2.4746e+06
+ Ntrg_l1p/Ntrg_tot = 0.87507; Ntrg_l1f/Ntrg_tot = 0.12493
+ Ntrg_l1pl2f/Ntrg_tot  = 0.783817; Ntrg_l1pl2p/Ntrg_tot  = 0.0912536; Ntrg_l1fl2p/Ntrg_tot  = 0.0143789
+ (Ntrg_l1pl2f+Ntrg_l1pl2p+Ntrg_l1fl2p)/Ntrg_tot = 0.889449
+N_pass = 2.2018e+06; N_tgsf = 2.19518e+06; N_base = 2.4746e+06
+N_pass/N_tgsf = 1.00302; N_pass/N_base = 0.889763; N_tgsf/N_base = 0.887087

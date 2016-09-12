@@ -1,0 +1,42 @@
+Using customized style
+Chi2 = 920.412593, Prob = 2.33798e-164, NDF = 44, igood = 3
+Chi2 = 920.412593, Prob = 2.33798e-164, NDF = 44, igood = 3
+Chi2 = 897.911559, Prob = 1.0707e-159, NDF = 44, igood = 3
+Chi2 = 897.911559, Prob = 1.0707e-159, NDF = 44, igood = 3
+Chi2 = 882.857616, Prob = 1.39557e-156, NDF = 44, igood = 3
+Chi2 = 882.857616, Prob = 1.39557e-156, NDF = 44, igood = 3
+Chi2 = 875.263547, Prob = 5.19017e-155, NDF = 44, igood = 3
+Chi2 = 875.263547, Prob = 5.19017e-155, NDF = 44, igood = 3
+Chi2 = 875.140616, Prob = 5.50298e-155, NDF = 44, igood = 3
+Chi2 = 875.140616, Prob = 5.50298e-155, NDF = 44, igood = 3
+Chi2 = 882.498475, Prob = 1.65591e-156, NDF = 44, igood = 3
+Chi2 = 882.498475, Prob = 1.65591e-156, NDF = 44, igood = 3
+Chi2 = 897.345084, Prob = 1.4026e-159, NDF = 44, igood = 3
+Chi2 = 897.345084, Prob = 1.4026e-159, NDF = 44, igood = 3
+Chi2 = 919.686652, Prob = 3.30596e-164, NDF = 44, igood = 3
+Chi2 = 919.686652, Prob = 3.30596e-164, NDF = 44, igood = 3
+Chi2 = 949.527591, Prob = 2.13793e-170, NDF = 44, igood = 3
+Chi2 = 949.527591, Prob = 2.13793e-170, NDF = 44, igood = 3
+Chi2 = 986.870497, Prob = 3.73363e-178, NDF = 44, igood = 3
+Chi2 = 986.870497, Prob = 3.73363e-178, NDF = 44, igood = 3
+Chi2 = 1031.716132, Prob = 1.73178e-187, NDF = 44, igood = 3
+Chi2 = 1031.716132, Prob = 1.73178e-187, NDF = 44, igood = 3
+Chi2 = 1084.063439, Prob = 2.09854e-198, NDF = 44, igood = 3
+Chi2 = 1084.063439, Prob = 2.09854e-198, NDF = 44, igood = 3
+Chi2 = 1143.909561, Prob = 6.54127e-211, NDF = 44, igood = 3
+Chi2 = 1143.909561, Prob = 6.54127e-211, NDF = 44, igood = 3
+Chi2 = 1211.249877, Prob = 5.17209e-225, NDF = 44, igood = 3
+Chi2 = 1211.249877, Prob = 5.17209e-225, NDF = 44, igood = 3
+Chi2 = 1286.078043, Prob = 1.02503e-240, NDF = 44, igood = 3
+Chi2 = 1286.078043, Prob = 1.02503e-240, NDF = 44, igood = 3
+
+****************************************
+Minimizer is Linear
+Chi2                      =  1.19711e-05
+NDf                       =           12
+p0                        =      41087.9   +/-   7.57613     
+p1                        =     -1182.64   +/-   0.217087    
+p2                        =      8.51414   +/-   0.00155506  
+#########################################################################
+ Pileup Mini-Bias cross-section scan results: best MB xsec = 69.452 mb
+#########################################################################

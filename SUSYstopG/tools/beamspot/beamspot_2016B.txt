@@ -1,0 +1,134 @@
+
+
+Data:
+
+Attaching file /data/XZZ/80X_Ntuple/80X_20160606_NoHLT_Skim/SingleMuon_Run2016B_PromptReco_v2.root as _file0...
+(TFile *) 0x5ec07c0
+root [1] tree->Draw("vtx_y")
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+root [2] TF1 * f1 = new TF1("f1", "gaus", -15, 15);
+root [3] tree->Draw("vtx_y>>hy(100,0.08,0.105")
+root [4] hy->Fit(f1, "R", "", 0.092, 0.098)
+ FCN=32.3182 FROM MIGRAD    STATUS=CONVERGED      82 CALLS          83 TOTAL
+                     EDM=4.89874e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.57746e+04   5.45159e+01   1.14938e-01  -2.29903e-06
+   2  Mean         9.46877e-02   3.29584e-06   4.51506e-08   8.02415e+01
+   3  Sigma        1.67711e-03   3.48201e-06   1.58993e-06   1.50334e-01
+(TFitResultPtr) @0x679ee10
+root [5] tree->Draw("vtx_x>>hx(100,0.05,0.07")
+root [6] tree->Draw("vtx_x>>hx(100,0.056,0.075")
+root [7] hx->Fit(f1, "R", "", 0.062, 0.067)
+ FCN=70.4678 FROM MIGRAD    STATUS=CONVERGED      65 CALLS          66 TOTAL
+                     EDM=4.69034e-09    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.3 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.86258e+04   4.27323e+01   5.98492e-02  -6.50773e-07
+   2  Mean         6.42408e-02   4.36650e-06   6.55354e-09  -1.51150e+01
+   3  Sigma        1.75950e-03   5.67029e-06  -2.19248e-06   5.79183e-02
+(TFitResultPtr) @0x6993ed0
+root [8] hx->Fit(f1, "R", "", 0.061, 0.067)
+ FCN=76.0053 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=6.07514e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.86235e+04   3.99296e+01   1.27008e-01  -1.06938e-06
+   2  Mean         6.42400e-02   3.53174e-06   3.06320e-08  -8.06079e+01
+   3  Sigma        1.76056e-03   3.87773e-06   2.58207e-06   2.84172e-01
+(TFitResultPtr) @0x69b1000
+root [9] tree->Draw("vtx_z>>hz(100,-15,15")
+root [10] hz->Fit(f1, "R", "", -10,10)
+ FCN=66.4009 FROM MIGRAD    STATUS=CONVERGED      60 CALLS          61 TOTAL
+                     EDM=1.00112e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.50346e+04   2.82102e+01   9.02357e-02   5.43702e-05
+   2  Mean         4.66323e-01   5.48855e-03   2.19958e-05   3.77499e-05
+   3  Sigma        3.57257e+00   4.25223e-03   1.28685e-06   4.06225e+00
+(TFitResultPtr) @0x6982210
+root [11] 
+
+
+
+MC:
+
+[heli@hengnepc1 skim]$ root -l  /data/XZZ/80X_Ntuple/80X_20160606_NoHLT_Skim/DYJetsToLL_M50.root                    
+WARNING: AutoLibraryloader::enable() and AutoLibraryLoader.h are deprecated.
+Use FWLiteEnabler::enable() and FWLiteEnabler.h instead
+root [0] 
+Attaching file /data/XZZ/80X_Ntuple/80X_20160606_NoHLT_Skim/DYJetsToLL_M50.root as _file0...
+(TFile *) 0x45f5440
+root [1] TF1 * f1 = new TF1("f1", "gaus", -15, 15);
+root [2] tree->Draw("vtx_z>>h1(100,-15,15)")
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+root [3] h1->Fit(f1, "R", "", -15, 15)
+ FCN=143.53 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.41376e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.11128e+05   6.30631e+01   2.96025e-01   5.97386e-08
+   2  Mean        -1.08019e+00   2.44160e-03   1.43161e-05   1.58890e-03
+   3  Sigma        5.25662e+00   1.87286e-03   5.63908e-07  -1.13484e-01
+(TFitResultPtr) @0x19a8710
+root [4] tree->Draw("vtx_x")
+root [5] tree->Draw("vtx_x>>hx(100,0.08,0.12)")
+root [6] h1->Fit(f1, "R", "", 0.09, 0.12)
+ FCN=2.61451e-12 FROM HESSE     STATUS=NOT POSDEF     16 CALLS         110 TOTAL
+                     EDM=5.2242e-12    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.39236e+05   6.33694e+03   4.13916e-02  -7.60933e-09
+   2  Mean         2.60204e-01   9.63574e-03   6.31219e-08   5.00323e-03
+   3  Sigma        1.52765e-01   1.33552e-02   2.55400e-07  -2.16151e-03
+(TFitResultPtr) @0x4af6a50
+root [7] hx->Fit(f1, "R", "", 0.09, 0.12)
+ FCN=97585.9 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=3.9206e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.71808e+05   2.27523e+02   2.59389e+01  -3.75258e-06
+   2  Mean         1.04817e-01   9.38147e-07   1.43072e-07   1.81721e+02
+   3  Sigma        2.05064e-03   8.33251e-07   1.45120e-05  -9.08708e+00
+(TFitResultPtr) @0x51e78b0
+root [8] hx->Fit(f1, "R", "", 0.1, 0.11)
+ FCN=11000.6 FROM MIGRAD    STATUS=CONVERGED      61 CALLS          62 TOTAL
+                     EDM=1.37683e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.83351e+05   2.30992e+02   9.06524e+00  -8.94570e-07
+   2  Mean         1.04822e-01   9.52253e-07   4.99832e-08   4.67629e+01
+   3  Sigma        1.97337e-03   8.32842e-07   5.64747e-06  -7.86770e-01
+(TFitResultPtr) @0x4cdb9c0
+root [9] tree->Draw("vtx_y")
+root [10] tree->Draw("vtx_y>>hy(100,0.15,0.2)")
+root [11] tree->Draw("vtx_y>>hy(100,0.155,0.18)")
+root [12] hy->Fit(f1, "R", "", 0.165, 0.175)
+ FCN=21117.2 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=7.39417e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.39783e+05   1.48260e+02   7.93854e+00   9.46339e-07
+   2  Mean         1.68690e-01   1.01606e-06   8.04375e-08   3.54732e+01
+   3  Sigma        1.97154e-03   9.44280e-07   8.72082e-06   9.17377e-01
+(TFitResultPtr) @0x538b0a0
+root [13] hy->Fit(f1, "R", "", 0.165, 0.173)
+ FCN=3109.08 FROM MIGRAD    STATUS=CONVERGED      64 CALLS          65 TOTAL
+                     EDM=2.09921e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.44593e+05   1.52245e+02   3.13481e+00   9.19478e-07
+   2  Mean         1.68672e-01   1.01536e-06   8.04289e-08  -4.98468e+02
+   3  Sigma        1.91557e-03   9.78670e-07   3.71201e-06  -1.96325e+00
+(TFitResultPtr) @0x52331e0
+root [14] hy->Fit(f1, "R", "", 0.165, 0.172)
+ FCN=1030.18 FROM MIGRAD    STATUS=CONVERGED      64 CALLS          65 TOTAL
+                     EDM=2.3957e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.46459e+05   1.58253e+02   1.84908e+00  -4.30699e-08
+   2  Mean         1.68656e-01   1.07292e-06   8.04216e-08   2.64877e+02
+   3  Sigma        1.88876e-03   1.13213e-06   2.55712e-06  -3.01132e+00
+(TFitResultPtr) @0x52ab230
+root [15] .q
+

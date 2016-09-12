@@ -1,0 +1,108 @@
+-----------------------------------------------------------------------
+(Last Updated for FEWZ 2.1)
+
+To install:
+
+make fewz (makes local executable)
+make condor_fewz (makes executable for Condor systems)
+make (makes both, an error will be thrown if you do not have Condor 
+installed)
+All makes will compile the necessary CUBA library provided automatically.
+
+To run (all executables and scripts are in bin directory, and should be 
+run from there):
+
+./local_run.sh w/z <run_dir> <input_file> <histogram_file> <output_file> 
+<pdf_dir> <num_proc>
+
+Example:
+./local_run.sh z my_run input.txt histograms.txt output.txt .. 2
+
+<run_dir> is the directory all intermediate output files of the run are 
+to be kept in, and will be created.
+
+<input_file> controls the physics details of the run; input.txt is 
+provided as an example.
+
+<histogram_file> controls which histograms are written and their 
+binning; histograms.txt is provided as an example.
+
+<output_file> is the name you want for the human-readable output.  A 
+prefix indicating perturbative order (LO, NLO, NNLO; selected in the 
+input file) will be added.
+
+<pdf_dir> is the location of the directory 'dat' where the parton 
+distribution function tables to be loaded by the program are stored.  By 
+default, this is '..' relative to the bin directory where the program is 
+run.
+
+<num_proc> is the number of parallel processes to be run (out of 230 
+total) by the script; if this option is omitted it defaults to 1.  
+Useful if you have a multicore system.
+
+condor_run.sh is run similarly, but is only of use to those who have the 
+Condor system installed.
+
+After the script has completed, results from the 230 pieces of the 
+calculation must be combined.  The script to run in this case is
+
+./finish.sh <run_dir> <full_out_file>
+
+Example:
+./finish.sh my_run NNLO.output.txt
+
+<run_dir> is the directory set up for the run earlier.
+
+<full_out_file> is the full name of the output file specified earlier, 
+including prefix.
+
+-----------------------------------------------------------------------
+(Last Updated for FEWZ 2.0)
+
+Source files:
+mainSrc:
+FEWZz.F: main Fortran source file, sets up integration for one sector, 
+runs, and produces output.
+fewz.cc: C++ wrapper for executable call.  Processes command-line 
+arguments.
+InitPDFs.F: Loads parton distribution functions from tables into memory.
+cuba.F: Handles details of numerical integration.
+src:
+histogram.F: creates and fills histograms.
+crsection.F: calls appropriate expression for a sector.
+constraint.F: applies kinematic cuts.
+Fjet.F: calculates some overall factors, calls constraint.
+luminosity.F : calculates PDF luminosity.
+fitpdf.F: fits PDFs from tables into interpolation routines.
+auxfunc.F: common functions used in integrand expressions.
+alpha_strong.F: calculates running strong coupling.
+a09.F: ABKM PDF interface.
+CT10Pdf.F: CTEQ 10 PDF interface.
+Cteq6Pdf-2008.F: CTEQ 6 PDF interface.
+GJR08VFNS.F: GJR PDF interface.
+JR09VFNNLO.F: JR PDF interface.
+mrstpdfs.F: MRST PDF interface.
+mstwpdf.F: MSTW PDF interface.
+nnpdf-driver.F: NNPDF PDF interface.
+alphaS.F: MSTW alpha_S intialization.
+dfint.F: GJR interpolation routine.
+*.F: expressions for various sectors of calculation
+include:
+cutcontrol.f: declarations for parameters for cuts.
+declar.f: misc. parameter declarations.
+parameters.f: physics parameter declarations.
+histos.f: histogram parameters.
+pdfcontrol.f: PDF fitting parameters.
+sectorcontrol.f: parameters to select sector.
+sectortiming.f: parameters to determine goal error per sector.
+bin/scripts:
+combine.py: combines output of multiple runs.
+create_condor_jobs.py: sets up job description files for Condor system.
+create_parallel.py: creates directory structure for parallel running.
+do_pdfs.py: finds PDF errors from standard and PDF output.
+get_momentA.py: normalizes Collins-Soper moment histograms.
+get_sects.py: returns number of sectors used by a run for use in other 
+scripts.
+GetStats.py: returns useful sector-by-sector run info.
+merge_parallel.py: combines sectors into total at end of run.
+defs.py: constants and functions used in other python scripts.
