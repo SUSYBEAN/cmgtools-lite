@@ -1,9 +1,9 @@
 SUSYBEAN Analysis Package
 ===============================
 
-  Analysis package heavy resonnance search using X->ZZ->2l2nu final states.
+  Analysis package heavy resonnance search using Susy bean final states.
  
-  For 76X analysis.
+  For 80X analysis.
 
 Instructions for package development.
 ---------------------------------
