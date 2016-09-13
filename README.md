@@ -1,4 +1,4 @@
-SUSYBEAN Analysis Package
+SUSYBEAN Analysis Package for beans
 ===============================
 
   Analysis package heavy resonnance search using Susy bean final states.
